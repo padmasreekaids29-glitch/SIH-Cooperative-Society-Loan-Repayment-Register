@@ -89,4 +89,4 @@ GitHub:
 https://github.com/padmasreekaids29-glitch
 
 LinkedIn:
-(Add your LinkedIn profile link)
+(https://www.linkedin.com/in/padmasree-k-4bb284386/)
