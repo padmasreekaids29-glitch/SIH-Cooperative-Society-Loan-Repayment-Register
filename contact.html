@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us – Vishwas Cooperative Society</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">🏦</span> Vishwas Cooperative Society</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <div id="navLinks" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="loan Repayment.html">Loan Repayment</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="Member login.html" class="nav-cta">Member Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding: 44px 20px 56px;">
+    <div class="hero-inner" style="grid-template-columns: 1fr;">
+      <div>
+        <div class="hero-eyebrow">Get in touch</div>
+        <h1 style="font-size:2rem;">We're here to help.</h1>
+        <p class="lead">Questions about a loan, a deposit, or your membership — reach the branch nearest you.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="contact-grid">
+
+      <div>
+        <div class="contact-info-card">
+          <h3>📍 Head Office</h3>
+          <p>12 Market Street, Chennai, Tamil Nadu 600001</p>
+        </div>
+        <div class="contact-info-card">
+          <h3>📞 Phone</h3>
+          <p>+91 44 2345 6789 (Mon–Sat, 9:30 AM – 5:30 PM)</p>
+        </div>
+        <div class="contact-info-card">
+          <h3>✉️ Email</h3>
+          <p>support@vishwascooperative.example</p>
+        </div>
+        <div class="contact-info-card">
+          <h3>🕒 Branch Hours</h3>
+          <p>Monday to Saturday, 9:30 AM to 5:30 PM. Closed on public holidays.</p>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3 style="margin-top:0; font-family:var(--font-display);">Send us a message</h3>
+        <form id="contactForm" onsubmit="return false;">
+          <label for="cName">Full Name</label>
+          <input type="text" id="cName" placeholder="e.g. Kavitha Raman" />
+
+          <label for="cMember">Member ID (if applicable)</label>
+          <input type="text" id="cMember" placeholder="e.g. M021" />
+
+          <label for="cEmail">Email or Phone</label>
+          <input type="text" id="cEmail" placeholder="e.g. you@example.com" />
+
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" rows="4" placeholder="How can we help?"></textarea>
+
+          <div style="margin-top:18px;">
+            <button type="submit" id="contactSubmit" class="btn btn-primary">Send Message</button>
+          </div>
+          <p class="form-note" id="contactNote">This is a demo form — messages aren't sent anywhere yet. Connect it to your email or CRM when you're ready to go live.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div>Vishwas Cooperative Society &middot; <a href="about.html">About us</a> &middot; <a href="index.html">Home</a></div>
+    <div>&copy; <span id="footerYear"></span> Vishwas Cooperative Society. All rights reserved.</div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function () {
+      var name = document.getElementById("cName").value.trim();
+      var note = document.getElementById("contactNote");
+      note.textContent = name
+        ? "Thanks, " + name + " — this demo form doesn't send messages yet, but the layout is ready to wire up."
+        : "This is a demo form — messages aren't sent anywhere yet.";
+    });
+  </script>
+</body>
+</html>

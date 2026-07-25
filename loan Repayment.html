@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cooperative Society – Loan Repayment Register</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+   <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">🏦</span> Vishwas Cooperative Society</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <div id="navLinks" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="loan Repayment.html">Loan Repayment</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="Member login.html" class="nav-cta">Member Login</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ===== HEADER / SUMMARY ===== -->
+  <header class="app-header">
+    <div class="header-title">
+      <h1>🏦 Cooperative Society</h1>
+      <p>Loan Repayment Register</p>
+    </div>
+    <div class="summary-cards" id="summaryCards">
+      <div class="card">
+        <span class="card-label">Total Members</span>
+        <span class="card-value" id="totalMembers">0</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Total Loan Amount</span>
+        <span class="card-value" id="totalLoans">₹0</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Total Balance</span>
+        <span class="card-value" id="totalBalance">₹0</span>
+      </div>
+      <div class="card card-danger">
+        <span class="card-label">Overdue Members</span>
+        <span class="card-value" id="overdueCount">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== TOOLBAR: SEARCH + FILTER + ADD ===== -->
+    <section class="toolbar">
+      <input
+        type="text"
+        id="searchBox"
+        placeholder="🔍 Search by member name..."
+        autocomplete="off"
+      />
+
+      <select id="statusFilter">
+        <option value="All">All Status</option>
+        <option value="Paid">Paid</option>
+        <option value="Pending">Pending</option>
+        <option value="Overdue">Overdue</option>
+      </select>
+
+      <button id="addRecordBtn" class="btn btn-primary">+ Add Record</button>
+      <button id="resetDataBtn" class="btn btn-secondary">↺ Reset Sample Data</button>
+    </section>
+
+    <!-- ===== MESSAGES (loading / empty / not found / error) ===== -->
+    <div id="statusMessage" class="status-message hidden"></div>
+
+    <!-- ===== TABLE ===== -->
+    <section class="table-wrapper">
+      <table id="loanTable">
+        <thead>
+          <tr>
+            <th>Entry ID</th>
+            <th>Member ID</th>
+            <th>Member Name</th>
+            <th>Loan Amount</th>
+            <th>Repayment</th>
+            <th>Balance</th>
+            <th>Due Date</th>
+            <th>Days Overdue</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- rows injected by JS -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- ===== ADD / UPDATE MODAL ===== -->
+  <div id="recordModal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <h2 id="modalTitle">Add New Record</h2>
+      <form id="recordForm" novalidate>
+        <input type="hidden" id="entryId" />
+
+        <label>Member ID</label>
+        <input type="text" id="memberId" placeholder="e.g. M021" />
+        <span class="error-text" id="err-memberId"></span>
+
+        <label>Member Name</label>
+        <input type="text" id="memberName" placeholder="e.g. Kavitha" />
+        <span class="error-text" id="err-memberName"></span>
+
+        <label>Loan Amount (₹)</label>
+        <input type="number" id="loanAmount" placeholder="e.g. 50000" />
+        <span class="error-text" id="err-loanAmount"></span>
+
+        <label>Repayment Made (₹)</label>
+        <input type="number" id="repayment" placeholder="e.g. 10000" />
+        <span class="error-text" id="err-repayment"></span>
+
+        <label>Due Date</label>
+        <input type="date" id="dueDate" />
+        <span class="error-text" id="err-dueDate"></span>
+
+        <div class="calc-preview">
+          Balance: <strong id="previewBalance">₹0</strong> &nbsp;|&nbsp;
+          Status: <strong id="previewStatus">-</strong>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Record</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
